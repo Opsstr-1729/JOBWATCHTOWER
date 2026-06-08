@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Job Watch Tower — CM Briefing Infographics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --teal:#0e5774;--teal-dark:#0a3f55;--teal-deeper:#072e3e;
+  --teal-mid:#176d8f;--teal-light:#2490b8;--teal-pale:#d0eaf4;
+  --teal-xpale:#e8f5fb;--gold:#e8a020;--gold-mid:#f5c050;
+  --gold-light:#fef3d8;--green:#1e9c6b;--text-900:#071c26;
+  --text-700:#1a3d50;--text-500:#4a7a90;--text-300:#90bfcc;
+  --bg:#f2f8fb;--surface:#fff;--border:#c8e4ee;--border-soft:#e2f1f7;
+  --shadow-sm:0 2px 8px rgba(14,87,116,.10);
+  --shadow-md:0 6px 24px rgba(14,87,116,.14);
+  --shadow-lg:0 16px 56px rgba(14,87,116,.20);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text-900);-webkit-font-smoothing:antialiased;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--teal-deeper);color:rgba(255,255,255,.5);font-size:.65rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.42rem 2.5rem;display:flex;justify-content:space-between;}
+
+/* ── HEADER ── */
+.site-header{background:var(--teal);height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;box-shadow:0 2px 28px rgba(7,46,62,.4);position:sticky;top:0;z-index:100;}
+.hdr-left{display:flex;align-items:center;gap:1rem;}
+.hdr-mono{width:44px;height:44px;border-radius:11px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:'Crimson Pro',serif;font-size:1.3rem;font-weight:700;color:#fff;}
+.hdr-sep{width:1px;height:36px;background:rgba(255,255,255,.2);}
+.hdr-brand h1{font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em;}
+.hdr-brand span{font-size:.65rem;color:rgba(255,255,255,.48);display:block;letter-spacing:.04em;}
+.hdr-badge{background:rgba(232,160,32,.22);border:1px solid rgba(232,160,32,.38);color:var(--gold-mid);font-size:.63rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.24rem .82rem;border-radius:20px;}
+
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden;padding:4rem 2.5rem 3.5rem;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-deeper) 0%,var(--teal) 52%,var(--teal-light) 100%);}
+.hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(232,160,32,.13) 0%,transparent 50%),radial-gradient(circle at 8% 85%,rgba(255,255,255,.04) 0%,transparent 40%);}
+.hero-bg::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40L40 0L80 40L40 80Z' fill='rgba(255,255,255,0.016)'/%3E%3C/svg%3E");background-size:80px 80px;}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 220px;gap:3rem;align-items:center;}
+.hero-kicker{display:inline-block;background:rgba(232,160,32,.22);border:1px solid rgba(232,160,32,.38);color:var(--gold-mid);font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.24rem .85rem;border-radius:20px;margin-bottom:.9rem;}
+.hero-title{font-family:'Crimson Pro',serif;font-size:clamp(1.9rem,3.2vw,3rem);font-weight:700;color:#fff;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem;}
+.hero-title em{color:var(--gold-mid);font-style:normal;}
+.hero-sub{color:rgba(255,255,255,.6);font-size:.88rem;line-height:1.68;max-width:520px;margin-bottom:2rem;}
+.hero-stats{display:flex;gap:2rem;}
+.stat-val{font-family:'Crimson Pro',serif;font-size:1.85rem;font-weight:700;color:#fff;line-height:1;}
+.stat-lbl{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:.07em;margin-top:.14rem;}
+.hero-cards{display:flex;flex-direction:column;gap:.8rem;}
+.hcard{background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:1rem 1.25rem;}
+.hcard-v{font-family:'Crimson Pro',serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1;}
+.hcard-l{font-size:.63rem;font-weight:700;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:.07em;margin-top:.16rem;}
+.hcard-bar{height:3px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden;margin-top:.6rem;}
+.hcard-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-mid));border-radius:2px;}
+
+/* ── MAIN ── */
+.main{max-width:1200px;margin:0 auto;padding:3.5rem 2.5rem 5rem;}
+.section{margin-bottom:5rem;}
+.sec-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:.45rem;}
+.sec-title{font-family:'Crimson Pro',serif;font-size:1.8rem;font-weight:700;color:var(--text-900);letter-spacing:-.02em;position:relative;padding-bottom:.5rem;margin-bottom:.4rem;}
+.sec-title::after{content:'';position:absolute;bottom:0;left:0;width:36px;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-light));border-radius:2px;}
+.sec-desc{font-size:.87rem;color:var(--text-500);line-height:1.65;max-width:640px;margin-bottom:2.2rem;}
+
+/* ══════════════════════════════════════════════
+   GRAPHIC 1 — GOVERNANCE STACK (uniform cards)
+   ══════════════════════════════════════════════ */
+.gov-wrap{background:var(--surface);border:1px solid var(--border-soft);border-radius:24px;padding:2.5rem 2rem;box-shadow:var(--shadow-sm);}
+.gov-header{text-align:center;margin-bottom:2.2rem;}
+.gov-header p{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:.4rem;}
+.gov-header h3{font-family:'Crimson Pro',serif;font-size:1.5rem;font-weight:700;color:var(--text-900);}
+
+.tier-stack{display:flex;flex-direction:column;gap:0;}
+
+/* each tier row */
+.tier{display:flex;align-items:center;gap:0;width:100%;cursor:pointer;transition:filter .2s;}
+.tier:hover .tier-card{filter:brightness(1.07);}
+
+.tier-card{flex:1;display:flex;align-items:center;gap:1.2rem;border-radius:14px;padding:1.1rem 1.5rem;position:relative;overflow:hidden;}
+.tier-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:14px 0 0 14px;}
+
+/* tier colours */
+.tc1{background:var(--teal-deeper);}.tc1::before{background:var(--gold);}
+.tc2{background:var(--teal-dark);}.tc2::before{background:#f0c860;}
+.tc3{background:var(--teal);}.tc3::before{background:rgba(255,255,255,.7);}
+.tc4{background:var(--teal-mid);}.tc4::before{background:rgba(255,255,255,.45);}
+.tc5{background:var(--teal-light);}.tc5::before{background:rgba(255,255,255,.3);}
+
+.tier-ico{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.tier-body{flex:1;}
+.tier-tag{font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.2rem;}
+.tier-name{font-size:.97rem;font-weight:700;color:#fff;line-height:1.25;letter-spacing:-.01em;}
+.tier-sub{font-size:.7rem;color:rgba(255,255,255,.62);margin-top:.18rem;}
+.tier-desc{font-size:.74rem;color:rgba(255,255,255,.52);line-height:1.48;margin-top:.3rem;}
+.tier-pill{flex-shrink:0;background:rgba(255,255,255,.14);color:rgba(255,255,255,.85);font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.22rem .65rem;border-radius:10px;white-space:nowrap;}
+.tier-pill.gold{background:var(--gold);color:var(--text-900);}
+
+/* connector between tiers */
+.tier-conn{display:flex;justify-content:center;align-items:center;height:22px;gap:0;position:relative;}
+.tier-conn::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1.5px;background:linear-gradient(180deg,var(--border),var(--teal-pale));transform:translateX(-50%);}
+.conn-dot{width:7px;height:7px;border-radius:50%;background:var(--teal-mid);border:2px solid var(--surface);position:relative;z-index:1;}
+
+/* right legend */
+.gov-legend{display:flex;justify-content:center;gap:1.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border-soft);}
+.leg-item{display:flex;align-items:center;gap:.45rem;font-size:.7rem;color:var(--text-500);}
+.leg-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0;}
+
+/* ══════════════════════════════════════════════
+   GRAPHIC 2 — 3 PILLARS (SVG-backed ecosystem)
+   ══════════════════════════════════════════════ */
+.eco-wrap{background:var(--surface);border:1px solid var(--border-soft);border-radius:24px;padding:2.5rem 2rem 2rem;box-shadow:var(--shadow-sm);overflow:hidden;}
+.eco-header{text-align:center;margin-bottom:2rem;}
+.eco-header p{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:.4rem;}
+.eco-header h3{font-family:'Crimson Pro',serif;font-size:1.5rem;font-weight:700;color:var(--text-900);}
+
+.pillars-grid{display:grid;grid-template-columns:1fr 56px 1fr 56px 1fr;align-items:center;gap:0;}
+.pillar{border-radius:18px;padding:2rem 1.5rem;position:relative;overflow:hidden;cursor:pointer;transition:transform .22s,box-shadow .22s;}
+.pillar:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+.pillar::after{content:'';position:absolute;inset:0;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.06) 0%,transparent 70%);pointer-events:none;}
+.pl1{background:var(--teal-deeper);border:1px solid rgba(255,255,255,.07);}
+.pl2{background:var(--teal);border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow-md);}
+.pl3{background:#0b4f6a;border:1px solid rgba(255,255,255,.07);}
+
+.pl-num{font-family:'Crimson Pro',serif;font-size:4rem;font-weight:700;color:rgba(255,255,255,.09);line-height:1;position:absolute;top:1rem;right:1.25rem;}
+.pl-icon{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:1rem;}
+.pl-lbl{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.4rem;}
+.pl-title{font-family:'Crimson Pro',serif;font-size:1.15rem;font-weight:700;color:#fff;line-height:1.25;margin-bottom:.7rem;letter-spacing:-.01em;}
+.pl-sub{font-size:.76rem;color:rgba(255,255,255,.56);line-height:1.6;margin-bottom:1.1rem;}
+.pl-tags{display:flex;flex-wrap:wrap;gap:.32rem;}
+.ptag{font-size:.6rem;font-weight:700;letter-spacing:.04em;padding:.18rem .58rem;border-radius:9px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.78);}
+.ptag-g{background:rgba(232,160,32,.28);color:var(--gold-mid);}
+.pl-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--text-900);font-size:.58rem;font-weight:700;padding:.18rem .62rem;border-radius:10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+
+/* flow arrow between pillars */
+.eco-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 2px;}
+.ea-lbl{font-size:.58rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-300);text-align:center;white-space:nowrap;}
+.ea-line{width:1.5px;height:24px;background:linear-gradient(180deg,rgba(14,87,116,.18),rgba(14,87,116,.55),rgba(14,87,116,.18));border-radius:1px;}
+.ea-head-d{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--teal-mid);}
+.ea-head-u{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:7px solid var(--teal-mid);}
+
+.eco-loop{text-align:center;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border-soft);}
+.loop-badge{display:inline-flex;align-items:center;gap:.55rem;background:var(--teal-xpale);border:1px solid var(--border);border-radius:20px;padding:.38rem 1.15rem;font-size:.72rem;color:var(--text-500);}
+
+/* ══════════════════════════════════════════════
+   GRAPHIC 3 — CHEVRON PIPELINE
+   ══════════════════════════════════════════════ */
+.chev-wrap{background:var(--surface);border:1px solid var(--border-soft);border-radius:24px;padding:2.5rem 2rem 2rem;box-shadow:var(--shadow-sm);}
+.chev-header{text-align:center;margin-bottom:2rem;}
+.chev-header p{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:.4rem;}
+.chev-header h3{font-family:'Crimson Pro',serif;font-size:1.5rem;font-weight:700;color:var(--text-900);}
+
+.chev-row{display:flex;align-items:stretch;gap:0;}
+.chev-step{flex:1;position:relative;cursor:pointer;transition:filter .2s;}
+.chev-step:hover{filter:brightness(1.09);}
+.chev-body{
+  padding:1.65rem 1.1rem 1.65rem 1.9rem;
+  min-height:200px;display:flex;flex-direction:column;justify-content:space-between;
+  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%,16px 50%);
+}
+.chev-step:first-child .chev-body{clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%);}
+.chev-step:last-child .chev-body{clip-path:polygon(0 0,100% 0,100% 100%,0 100%,16px 50%);}
+/* colours */
+.cs1 .chev-body{background:var(--teal-deeper);}
+.cs2 .chev-body{background:var(--teal-dark);}
+.cs3 .chev-body{background:var(--teal);flex:1.5;}
+.cs3{flex:1.5;}
+.cs4 .chev-body{background:var(--teal-light);}
+
+.ch-sn{font-size:.57rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:.45rem;}
+.ch-ico{font-size:1.35rem;margin-bottom:.55rem;}
+.ch-title{font-size:.9rem;font-weight:700;color:#fff;line-height:1.3;letter-spacing:-.01em;margin-bottom:.35rem;}
+.ch-sub{font-size:.71rem;color:rgba(255,255,255,.55);line-height:1.5;}
+.ch-tags{display:flex;flex-wrap:wrap;gap:.28rem;margin-top:.7rem;}
+.ctag{font-size:.59rem;font-weight:700;padding:.17rem .5rem;border-radius:8px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.78);}
+.ctag-g{background:rgba(232,160,32,.3);color:var(--gold-mid);}
+
+/* fork inside step 3 */
+.fork{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.85rem;}
+.fork-card{border-radius:10px;padding:.9rem .85rem;border:1.5px solid;}
+.fork-teal{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);}
+.fork-gold{background:rgba(232,160,32,.12);border-color:rgba(232,160,32,.3);}
+.fork-ico{font-size:1.1rem;margin-bottom:.4rem;}
+.fork-t{font-size:.77rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
+.fork-t.alt{color:var(--gold-mid);}
+.fork-li{font-size:.66rem;color:rgba(255,255,255,.55);line-height:1.5;display:flex;align-items:flex-start;gap:.3rem;margin-bottom:.18rem;}
+.fork-li::before{content:'›';flex-shrink:0;color:rgba(255,255,255,.4);}
+.fork-li.alt::before{color:var(--gold-mid);}
+
+/* timeline */
+.timeline{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border-soft);}
+.tl-lbl{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-300);margin-bottom:.75rem;}
+.tl-track{position:relative;height:34px;}
+.tl-rail{position:absolute;top:50%;left:0;right:0;height:3px;background:var(--border);border-radius:2px;transform:translateY(-50%);}
+.tl-fill{position:absolute;top:50%;left:0;height:3px;border-radius:2px;transform:translateY(-50%);}
+.tl-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;border:2px solid var(--surface);}
+.tl-labels{display:grid;grid-template-columns:repeat(4,1fr);margin-top:.5rem;}
+.tl-step{text-align:center;font-size:.63rem;color:var(--text-500);font-weight:600;line-height:1.4;}
+.tl-step span{display:block;color:var(--text-300);font-weight:400;font-size:.6rem;}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--teal-deeper);padding:2rem 2.5rem;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-l h3{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.8);}
+.footer-l p{font-size:.68rem;color:rgba(255,255,255,.38);margin-top:.18rem;}
+.footer-r{font-size:.7rem;color:rgba(255,255,255,.3);text-align:right;line-height:1.7;}
+.footer-r strong{color:rgba(255,255,255,.5);}
+
+/* ── REVEAL ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;}
+.revealed{animation:fadeUp .5s ease forwards;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .hero-inner,.pillars-grid{grid-template-columns:1fr;}
+  .hero-cards,.eco-arrow{display:none;}
+  .chev-row{flex-direction:column;}
+  .chev-body{clip-path:none!important;border-radius:12px;}
+  .fork{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>Kerala Academy for Skills Excellence (KASE) · Confidential — Chief Minister Briefing</span>
+  <span>Job Watch Tower Framework · Infographic Deck 2026</span>
+</div>
+
+<header class="site-header">
+  <div class="hdr-left">
+    <div class="hdr-mono">K</div>
+    <div class="hdr-sep"></div>
+    <div class="hdr-brand">
+      <h1>Job Watch Tower</h1>
+      <span>Labour Market Intelligence & Workforce Integration — Kerala</span>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:.75rem;">
+    <span class="hdr-badge">CM Briefing 2026</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker">Strategic Workforce Intelligence Framework</div>
+      <h1 class="hero-title">Kerala's <em>Job Watch Tower</em><br/>Systemic Labour Market Transformation</h1>
+      <p class="hero-sub">An integrated, anticipatory architecture for continuous labour market intelligence, governance reform, and dynamic workforce integration — shifting Kerala from reactive interventions to proactive, data-driven employment ecosystems.</p>
+      <div class="hero-stats">
+        <div><div class="stat-val">2.31 Cr</div><div class="stat-lbl">Working-age population</div></div>
+        <div style="width:1px;background:rgba(255,255,255,.16);margin:0 .25rem;"></div>
+        <div><div class="stat-val">3 Pillars</div><div class="stat-lbl">Integrated architecture</div></div>
+        <div style="width:1px;background:rgba(255,255,255,.16);margin:0 .25rem;"></div>
+        <div><div class="stat-val">₹500–750 Cr</div><div class="stat-lbl">LSGI convergence target</div></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hcard"><div class="hcard-v">5-Tier</div><div class="hcard-l">Governance Structure</div><div class="hcard-bar"><div class="hcard-fill" style="width:100%"></div></div></div>
+      <div class="hcard"><div class="hcard-v">14 Districts</div><div class="hcard-l">Decentralised DSDP</div><div class="hcard-bar"><div class="hcard-fill" style="width:82%"></div></div></div>
+      <div class="hcard"><div class="hcard-v">CAG Platform</div><div class="hcard-l">Dynamic Career Placement</div><div class="hcard-bar"><div class="hcard-fill" style="width:65%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+
+<!-- ═══════════════════════════════════════════
+     GRAPHIC 1 — GOVERNANCE FRAMEWORK
+     ═══════════════════════════════════════════ -->
+<section class="section reveal" id="g1">
+  <div class="sec-label">Graphic 01 · Governance Architecture</div>
+  <h2 class="sec-title">Multi-Tier Skill Governance Framework</h2>
+  <p class="sec-desc">Five tiers of aligned governance flowing seamlessly from apex policy to last-mile service delivery. Each institution performs clearly defined, complementary functions within the skill ecosystem.</p>
+
+  <div class="gov-wrap">
+    <div class="gov-header">
+      <p>Policy → Execution · 5-Tier Structure</p>
+      <h3>Skill Governance: From Strategy to Service Delivery</h3>
+    </div>
+
+    <div class="tier-stack">
+
+      <!-- T1 -->
+      <div class="tier">
+        <div class="tier-card tc1">
+          <div class="tier-ico">🏛️</div>
+          <div class="tier-body">
+            <div class="tier-tag">Tier 1 · Apex Policy Body</div>
+            <div class="tier-name">State Level Steering Council (SLSC)</div>
+            <div class="tier-sub">Chaired by Hon'ble Chief Minister</div>
+            <div class="tier-desc">Apex policy-making body providing strategic direction. Comprises Ministers, senior officials, industry representatives. Aligns skill development with Kerala's socio-economic priorities.</div>
+          </div>
+          <div class="tier-pill gold">Policy Direction</div>
+        </div>
+      </div>
+
+      <div class="tier-conn"><div class="conn-dot"></div></div>
+
+      <!-- T2 -->
+      <div class="tier">
+        <div class="tier-card tc2">
+          <div class="tier-ico">⚙️</div>
+          <div class="tier-body">
+            <div class="tier-tag">Tier 2 · Executive Convergence</div>
+            <div class="tier-name">High Power Committee (HPC)</div>
+            <div class="tier-sub">Chaired by Chief Secretary · 9 members</div>
+            <div class="tier-desc">Executive oversight and convergence mechanism. Facilitates inter-departmental coordination, resource optimisation, and implementation monitoring across all state departments.</div>
+          </div>
+          <div class="tier-pill">Inter-Dept. Sync</div>
+        </div>
+      </div>
+
+      <div class="tier-conn"><div class="conn-dot"></div></div>
+
+      <!-- T3 -->
+      <div class="tier">
+        <div class="tier-card tc3">
+          <div class="tier-ico">🎓</div>
+          <div class="tier-body">
+            <div class="tier-tag">Tier 3 · State Skill Secretariat</div>
+            <div class="tier-name">Kerala Academy for Skills Excellence (KASE)</div>
+            <div class="tier-sub">State Skill Development Mission & Secretariat</div>
+            <div class="tier-desc">Nodal agency for policy implementation, ecosystem development, curriculum governance, accreditation, and overall coordination. Manages BACs, CoEs, international partnerships, and the CAG platform.</div>
+          </div>
+          <div class="tier-pill">Nodal Agency</div>
+        </div>
+      </div>
+
+      <div class="tier-conn"><div class="conn-dot"></div></div>
+
+      <!-- T4 -->
+      <div class="tier">
+        <div class="tier-card tc4">
+          <div class="tier-ico">🗺️</div>
+          <div class="tier-body">
+            <div class="tier-tag">Tier 4 · Decentralised Planning</div>
+            <div class="tier-name">District Skill Committees (DSC)</div>
+            <div class="tier-sub">14 Districts — Independent Labour Market Units</div>
+            <div class="tier-desc">Principal planning body for demand & supply assessment, stakeholder convergence, and preparation of District Skill Development Plans (DSDPs). Integrates demand, supply, fund mobilisation, and infrastructure utilisation.</div>
+          </div>
+          <div class="tier-pill">District Planning</div>
+        </div>
+      </div>
+
+      <div class="tier-conn"><div class="conn-dot"></div></div>
+
+      <!-- T5 -->
+      <div class="tier">
+        <div class="tier-card tc5">
+          <div class="tier-ico">📍</div>
+          <div class="tier-body">
+            <div class="tier-tag">Tier 5 · Last-Mile Delivery</div>
+            <div class="tier-name">District Skill Development Centres (DSDCs)</div>
+            <div class="tier-sub">One-Stop Skill Service Centres at District Level</div>
+            <div class="tier-desc">Operational arm of the decentralised ecosystem. Handles beneficiary mobilisation, career guidance, training coordination, and direct delivery of skill services to students, unemployed youth, mid-career professionals, repatriates, and unorganised-sector workers.</div>
+          </div>
+          <div class="tier-pill">Last Mile</div>
+        </div>
+      </div>
+
+    </div><!-- end tier-stack -->
+
+    <div class="gov-legend">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--teal-deeper);"></div>Strategic Level</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--teal);"></div>Coordination Level</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--teal-light);"></div>Implementation Level</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--gold);border-radius:50%;"></div>Policy authority marker</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     GRAPHIC 2 — 3 PILLARS ECOSYSTEM
+     ═══════════════════════════════════════════ -->
+<section class="section reveal" id="g2">
+  <div class="sec-label">Graphic 02 · Ecosystem Architecture</div>
+  <h2 class="sec-title">The Job Watch Tower Ecosystem — 3 Pillars</h2>
+  <p class="sec-desc">A continuous, self-sustaining intelligence loop. Predictive market data informs system redesign, which activates dynamic career placement, which feeds intelligence back into the market watch engine.</p>
+
+  <div class="eco-wrap">
+    <div class="eco-header">
+      <p>Continuous Intelligence Cycle · Self-Sustaining Loop</p>
+      <h3>Three Interdependent Pillars of Workforce Integration</h3>
+    </div>
+
+    <!-- SVG arc graphic at top -->
+    <div style="display:flex;justify-content:center;margin-bottom:1.75rem;">
+      <svg width="100%" viewBox="0 0 820 90" xmlns="http://www.w3.org/2000/svg" style="max-width:820px;">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <!-- arc: I → II -->
+        <path d="M 200 70 Q 330 12 450 70" fill="none" stroke="#176d8f" stroke-width="1.5" opacity=".5" marker-end="url(#ah)" stroke-dasharray="5 3"/>
+        <text x="318" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#176d8f" letter-spacing="1" opacity=".8">INSIGHTS FLOW</text>
+        <!-- arc: II → III -->
+        <path d="M 580 70 Q 450 12 320 70" fill="none" stroke="#176d8f" stroke-width="1.5" opacity=".35" marker-end="url(#ah)" stroke-dasharray="5 3"/>
+        <text x="454" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#176d8f" letter-spacing="1" opacity=".55">REFORM OUTPUT</text>
+        <!-- arc: III → I (bottom return) -->
+        <path d="M 630 75 Q 600 88 480 88 Q 340 88 200 88 Q 140 88 140 75" fill="none" stroke="#e8a020" stroke-width="1.5" opacity=".4" marker-end="url(#ah)" stroke-dasharray="4 3"/>
+        <text x="385" y="86" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#e8a020" letter-spacing="1" opacity=".7">PLACEMENT DATA FEEDBACK</text>
+        <!-- pillar anchors -->
+        <circle cx="200" cy="70" r="5" fill="#072e3e" stroke="#176d8f" stroke-width="1.5"/>
+        <circle cx="420" cy="70" r="5" fill="#0e5774" stroke="#2490b8" stroke-width="1.5"/>
+        <circle cx="630" cy="70" r="5" fill="#0b4f6a" stroke="#176d8f" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div class="pillars-grid">
+
+      <!-- PILLAR I -->
+      <div class="pillar pl1">
+        <div class="pl-num">I</div>
+        <div class="pl-icon">🔭</div>
+        <div class="pl-lbl">Pillar I · Intelligence Engine</div>
+        <div class="pl-title">Market Watch, Evaluation & Prediction</div>
+        <div class="pl-sub">Continuous labour market intelligence via predictive analytics, industry demand analysis, and state-wide HR surveys. Transitions Kerala from reactive to proactive workforce planning.</div>
+        <div class="pl-tags">
+          <span class="ptag">UNU / LSGD Study</span>
+          <span class="ptag">SSC Demand Analysis</span>
+          <span class="ptag">HR Survey</span>
+          <span class="ptag ptag-g">Predictive Forecasting</span>
+        </div>
+      </div>
+
+      <!-- FLOW I→II -->
+      <div class="eco-arrow">
+        <div class="ea-lbl">Insights</div>
+        <div class="ea-line"></div>
+        <div class="ea-head-d"></div>
+        <div style="height:6px;"></div>
+        <div class="ea-head-u"></div>
+        <div class="ea-line"></div>
+        <div class="ea-lbl">Needs</div>
+      </div>
+
+      <!-- PILLAR II -->
+      <div class="pillar pl2" style="position:relative;">
+        <div class="pl-badge">Apex Reform Engine</div>
+        <div class="pl-num">II</div>
+        <div class="pl-icon">🏗️</div>
+        <div class="pl-lbl">Pillar II · Structural Reform</div>
+        <div class="pl-title">System Design & Governance Reform</div>
+        <div class="pl-sub">Institutional restructuring, agile curriculum governance, ecosystem re-engineering. Converts market intelligence into scalable, demand-responsive skill delivery infrastructure.</div>
+        <div class="pl-tags">
+          <span class="ptag">DSDP Framework</span>
+          <span class="ptag">Agile Curriculum</span>
+          <span class="ptag">Smart Budgeting</span>
+          <span class="ptag ptag-g">Micro-credentials</span>
+        </div>
+      </div>
+
+      <!-- FLOW II→III -->
+      <div class="eco-arrow">
+        <div class="ea-lbl">Talent</div>
+        <div class="ea-line"></div>
+        <div class="ea-head-d"></div>
+        <div style="height:6px;"></div>
+        <div class="ea-head-u"></div>
+        <div class="ea-line"></div>
+        <div class="ea-lbl">Demand</div>
+      </div>
+
+      <!-- PILLAR III -->
+      <div class="pillar pl3">
+        <div class="pl-num">III</div>
+        <div class="pl-icon">🎯</div>
+        <div class="pl-lbl">Pillar III · Market Placement</div>
+        <div class="pl-title">Dynamic Career Mapping & Placement</div>
+        <div class="pl-sub">Real-time career guidance, skill registry, and placement facilitation via the CAG Platform. Translates market intelligence into tangible employment outcomes at district level.</div>
+        <div class="pl-tags">
+          <span class="ptag">CAG Platform</span>
+          <span class="ptag">State Job Portal</span>
+          <span class="ptag">Skill Registry</span>
+          <span class="ptag ptag-g">Biannual Drives</span>
+        </div>
+      </div>
+
+    </div><!-- end pillars-grid -->
+
+    <div class="eco-loop">
+      <div class="loop-badge">
+        <span>🔄</span>
+        <span>Intelligence feeds Reform &nbsp;→&nbsp; Reform enables Placement &nbsp;→&nbsp; Placement data sharpens Intelligence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     GRAPHIC 3 — AGILE CURRICULUM FLOW
+     ═══════════════════════════════════════════ -->
+<section class="section reveal" id="g3">
+  <div class="sec-label">Graphic 03 · Process Flow</div>
+  <h2 class="sec-title">Agile Curriculum Modification Flow</h2>
+  <p class="sec-desc">A lean, rapid-response pipeline converting predictive labour market signals into deployed workforce interventions — with a dual-track split at Step 3 for vocational and academic channels.</p>
+
+  <div class="chev-wrap">
+    <div class="chev-header">
+      <p>Demand Signal → Skill Response Pipeline</p>
+      <h3>From Industry Forecast to Workforce Deployment</h3>
+    </div>
+
+    <div class="chev-row">
+
+      <!-- STEP 1 -->
+      <div class="chev-step cs1">
+        <div class="chev-body">
+          <div>
+            <div class="ch-sn">Step 01</div>
+            <div class="ch-ico">📡</div>
+            <div class="ch-title">Industry Demand Signal</div>
+            <div class="ch-sub">Predictive data from UNU/LSGD study and SSC industry analysis identifies sectors with growth potential or displacement risk across Kerala's 14 districts.</div>
+          </div>
+          <div class="ch-tags">
+            <span class="ctag">UNU Study</span>
+            <span class="ctag">LSGD Data</span>
+            <span class="ctag ctag-g">Sector Forecast</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="chev-step cs2">
+        <div class="chev-body">
+          <div>
+            <div class="ch-sn">Step 02</div>
+            <div class="ch-ico">✅</div>
+            <div class="ch-title">BAC Validation</div>
+            <div class="ch-sub">KASE's Business Advisory Committees — expert panels from industry and academia — validate emerging skill demands and prioritise curriculum interventions for high-growth sectors.</div>
+          </div>
+          <div class="ch-tags">
+            <span class="ctag">Industry Experts</span>
+            <span class="ctag">Academia Panels</span>
+            <span class="ctag ctag-g">Validated Signal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 — DUAL FORK -->
+      <div class="chev-step cs3">
+        <div class="chev-body">
+          <div>
+            <div class="ch-sn">Step 03 · Dual Intervention</div>
+            <div class="ch-ico">🔀</div>
+            <div class="ch-title">Parallel Curriculum Pathways</div>
+            <div class="ch-sub">Validated signals bifurcate simultaneously into vocational and academic streams.</div>
+          </div>
+          <div class="fork">
+            <div class="fork-card fork-teal">
+              <div class="fork-ico">🔧</div>
+              <div class="fork-t">NCVT / ITI Track</div>
+              <div class="fork-li">Micro-credential modules</div>
+              <div class="fork-li">Rapid short-course creation</div>
+              <div class="fork-li">Trade-specific upskilling</div>
+            </div>
+            <div class="fork-card fork-gold">
+              <div class="fork-ico">🎓</div>
+              <div class="fork-t alt">University Degree Track</div>
+              <div class="fork-li alt">Degree programme modification</div>
+              <div class="fork-li alt">Future skills integration</div>
+              <div class="fork-li alt">Cross-disciplinary electives</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="chev-step cs4">
+        <div class="chev-body">
+          <div>
+            <div class="ch-sn">Step 04</div>
+            <div class="ch-ico">🚀</div>
+            <div class="ch-title">Workforce Integration</div>
+            <div class="ch-sub">DSDP execution at district level. Trained workforce mapped to the CAG platform for direct placement. Biannual district drives complete the employment cycle.</div>
+          </div>
+          <div class="ch-tags">
+            <span class="ctag">DSDP Execution</span>
+            <span class="ctag">CAG Platform</span>
+            <span class="ctag ctag-g">Placement Drives</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end chev-row -->
+
+    <!-- TIMELINE -->
+    <div class="timeline">
+      <div class="tl-lbl">Indicative Implementation Timeline</div>
+      <div class="tl-track">
+        <div class="tl-rail"></div>
+        <div class="tl-fill" style="width:100%;background:linear-gradient(90deg,var(--teal-deeper),var(--teal-light));"></div>
+        <div class="tl-dot" style="left:0%;background:var(--teal-deeper);"></div>
+        <div class="tl-dot" style="left:33%;background:var(--teal-dark);"></div>
+        <div class="tl-dot" style="left:66%;background:var(--teal);"></div>
+        <div class="tl-dot" style="left:100%;background:var(--teal-light);"></div>
+      </div>
+      <div class="tl-labels">
+        <div class="tl-step">Signal Detected<span>Month 1–2</span></div>
+        <div class="tl-step">BAC Validated<span>Month 2–3</span></div>
+        <div class="tl-step">Courses Designed<span>Month 3–6</span></div>
+        <div class="tl-step">DSDP Deployed<span>Year 1 onwards</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-l">
+      <h3>Kerala Academy for Skills Excellence (KASE)</h3>
+      <p>Job Watch Tower — Infographic Briefing Pack · Chief Minister's Office Presentation</p>
+    </div>
+    <div class="footer-r">
+      <strong>Confidential · For Official Use Only</strong>
+      State Skill Development Mission, Government of Kerala · 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');io.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
